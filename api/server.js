@@ -11,13 +11,12 @@ server.use(express.json());
 server.use("/api/accounts", logger, router);
 
 server.get("/", (req, res) => {
-  res.send(`<h2>>Message server is on</h2>`);
+  res.send(`<h2>This is the message for a general server get request</h2>`);
 });
 
 function logger(req, res, next) {
-    console.log(`[${new Date().toISOString()}] ${req.method} to ${req.url}`);
-    next();
-  }
-  
-  module.exports = server;
-  
+  console.log(`[${new Date().toISOString()}] ${req.method} to ${req.url}`);
+  next();
+}
+
+module.exports = server;
